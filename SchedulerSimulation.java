@@ -1,6 +1,8 @@
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 import java.util.Map;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -31,7 +33,19 @@ class Process implements Runnable {
     // Time left for the process to finish its execution
     private int remainingTime; 
     private int priority; //priority from 1-10
-    
+    // Track when the process enters the ready queue
+      private long queueEntryTime;
+
+     // Total time spent waiting in the ready queue
+      private long waitingTime = 0;
+    // Record the time when this process enters the ready queue
+public void recordQueueEntry() {
+    queueEntryTime = System.currentTimeMillis();
+}
+// Calculate how long the process waited in the ready queue
+public void recordWaitingTime() {
+    waitingTime += System.currentTimeMillis() - queueEntryTime;
+}
     // Constructor to initialize the process with name, burst time, and time quantum
     public Process(String name, int burstTime, int timeQuantum) {
         this.name = name;
@@ -146,6 +160,10 @@ class Process implements Runnable {
     public boolean isFinished() {
         return remainingTime <= 0;
     }
+    // Return the total waiting time in milliseconds
+    public long getWaitingTime() {
+    return waitingTime;
+}
     //To Return the priority of the process
     public int getPriority(){
         return priority;
@@ -174,6 +192,8 @@ static int contextSwitchCount = 0;
         
         // Map to associate each thread with its respective process object
         Map<Thread, Process> processMap = new HashMap<>();
+        // Store processes for the final statistics table
+       List<Process> allProcesses = new ArrayList<>();
         
         // Print simulation header with elegant formatting
         System.out.println("\n" + Colors.BOLD + Colors.BRIGHT_CYAN + 
@@ -209,7 +229,7 @@ static int contextSwitchCount = 0;
             
             // Create a new process object with a unique name, burst time, and the defined time quantum
             Process process = new Process("P" + i, burstTime, timeQuantum);
-            
+            allProcesses.add(process);
             // Add the process to the ready queue and the map
             addProcessToQueue(process, processQueue, processMap);
         }
@@ -248,7 +268,11 @@ static int contextSwitchCount = 0;
             System.out.println(Colors.BOLD + Colors.MAGENTA + "└" + "─".repeat(79) + Colors.RESET + "\n");
             // Count each time a process starts running on the CPU
              contextSwitchCount++;
-            // Start the thread, which will run the process for one time quantum
+            // Start the thread, which will run the process for one time quantum 
+
+            // Calculate waiting time before the process starts running
+           Process currentProcess = processMap.get(currentThread);
+            currentProcess.recordWaitingTime();
             currentThread.start();
             
             try {
@@ -290,6 +314,19 @@ static int contextSwitchCount = 0;
                           Colors.RESET + "\n");
                        // Display the total number of context switches
 System.out.println("Total Context Switches: " + contextSwitchCount);   
+
+// Display final statistics for all processes System.out.println("\nPROCESS STATISTICS"); System.out.printf("%-15s %-15s %-18s %-18s%n", "Process Name", "Burst Time", "Waiting Time", "Turnaround Time");
+System.out.printf("%-15s %-15s %-18s %-18s%n",
+        "Process Name", "Burst Time", "Waiting Time", "Turnaround Time");
+for (Process p : allProcesses) { long waiting = p.getWaitingTime(); long burst = p.getBurstTime(); long turnaround = waiting + burst;
+System.out.printf("%-15s %-15d %-18d %-18d%n",
+        p.getName(), burst, waiting, turnaround);
+}
+
+
+
+
+
     }
     
     // Method to add a process to the queue and map, while printing a "ready" message
@@ -297,7 +334,7 @@ System.out.println("Total Context Switches: " + contextSwitchCount);
                                         Map<Thread, Process> processMap) {
         // Create a new thread to run the process
         Thread thread = new Thread(process);
-        
+        process.recordQueueEntry();
         // Add the thread to the ready queue
         processQueue.add(thread);
         
