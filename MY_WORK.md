@@ -29,17 +29,17 @@
 
 | Field | Your Answer |
 |-------|-------------|
-| **Full Name** | [Write your full name here] |
-| **Student ID** | [Write your student ID here] |
-| **University Email** | [yourid]@std.psau.edu.sa |
-| **GitHub Username** | [your-github-username] |
-| **Repository Link** | [Paste your repository link here] |
+| **Full Name** | [Fatimah mohammed AlAithan ] |
+| **Student ID** | [446051500] |
+| **University Email** | [446051500]@std.psau.edu.sa |
+| **GitHub Username** | [Fatimah1006] |
+| **Repository Link** | [https://github.com/Fatimah1006/OS-Assignment1-Fatimah-Alaithan] |
  
 ---
 
 ## 🎥 Video Link
 
-**Video Link**: [Paste your video link here]
+**Video Link**: [https://drive.google.com/file/d/1u-k59ypXl0C6znu8UNkXQfnbed7ru9-W/view?usp=drivesdk]
 
 > ⚠️ **WARNING:** The video must be **publicly accessible** ("Anyone with the link can view") on **Google Drive**, **YouTube (Unlisted or Public)** or any other cloud file-sharing system. A private, restricted or broken link counts as a **missing video (-1 mark)**.
 >
@@ -129,69 +129,89 @@
 
 ## Your Development Log
 
-### Entry 1 - [Date and Time]
+### Entry 1 - [9 october, 2026 8:00 am ]
 **What I did**:
+Set up the Java project in Visual Studio Code.
 
 **Details**:
+I opened my GitHub repository in VS Code, installed the Java extensions, and configured the JDK to run the starter project.
 
 **Challenges**:
+I had difficulty setting up the development environment and finding the correct commands in VS Code.
 
 **Solution**:
+ I checked the Java installation, followed the setup steps, and successfully opened and ran the project.
 
 **Time spent**:
-
+1 hour
 ---
 
-### Entry 2 - [Date and Time]
+### Entry 2 - [9 october , 2026 , 10:00 Am]
 **What I did**:
+ Updated my student ID in the starter code.
 
 **Details**:
+ I found the student ID variable in SchedulerSimulation.java and replaced the example ID with my actual student ID. This ID is used to generate the simulation’s random values.
 
 **Challenges**:
+ I needed to find the correct place to change the ID without affecting the rest of the code.
 
 **Solution**:
+ I located the student ID variable, updated its value, and committed the change to GitHub.
 
 **Time spent**:
-
+1 hour.
 ---
 
-### Entry 3 - [Date and Time]
+### Entry 3 - [9 october , 2026 , 12:00 PM]
 **What I did**:
+ Added random priorities to the processes.
 
 **Details**:
+I added a priority variable to the Process class and assigned each process a random number from 1 to 10. I also displayed the priority when a process entered the ready queue without changing the FIFO scheduling order.
 
 **Challenges**:
+ I needed to understand where to store the priority and how to display it without affecting the scheduling algorithm.
 
 **Solution**:
+ I added a getter method for the priority and used it when printing the ready queue information. I tested the output to check that the priorities appeared correctly.
 
 **Time spent**:
-
+2 hours.
 ---
 
-### Entry 4 - [Date and Time]
+### Entry 4 - [9 October , 2026 , 4:00 PM]
 **What I did**:
+ Added a context switch counter to the scheduler simulation.
 
 **Details**:
+ I declared a static integer variable called contextSwitchCount in SchedulerSimulation.java. I increased the counter each time a new process started running and printed the total number of context switches at the end of the simulation.
 
 **Challenges**:
+ I needed to find the correct location to increase the counter without counting the same process incorrectly.
 
 **Solution**:
+ I placed contextSwitchCount++ just before currentThread.start() and tested the program to confirm that the final counter was displayed.
 
 **Time spent**:
-
+1 hour.
 ---
 
-### Entry 5 - [Date and Time]
+### Entry 5 - [10 October , 2026 ,1:00PM ]
 **What I did**:
+Added waiting time tracking and a final statistics table.
 
 **Details**:
+ I used System.currentTimeMillis() to record when each process entered the ready queue and calculate how long it waited before running. I also created a final table showing each process’s burst time, waiting time, and turnaround time.
 
 **Challenges**:
+I needed to understand where to record the waiting time and how to display the results for all processes.
 
 **Solution**:
+ I recorded the queue entry time when a process was added to the ready queue and calculated its waiting time before starting the thread. I tested the simulation and checked that the final statistics table appeared correctly.
 
 **Time spent**:
-
+2 hours.
 ---
 
 ### Entry 6 - [Optional - Date and Time]
@@ -237,7 +257,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[I learned that multithreading allows a program to work with multiple threads. In this assignment, I saw how the scheduler manages different processes using threads. I used Thread.start() to start a thread and Thread.join() to wait for it to finish. At first, I was confused about how the threads worked together. After running the simulation and checking the output, I understood the process better. I also learned that the ready queue helps organize which process runs next.]
 
 ## Question 2: What was the most challenging part of this assignment?
 
@@ -245,7 +265,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[The most challenging part for me was understanding the code and knowing where to add the new features. I was worried that changing something in the wrong place would affect the scheduler. Adding the waiting time feature was especially challenging because I had to know when each process entered the ready queue and when it started running. I used System.currentTimeMillis() to calculate the waiting time. I ran the program several times to check the output and make sure the statistics table appeared correctly. After finishing this part, I felt more confident working with Java code.]
 
 ## Question 3: How did you overcome the challenges you faced?
 
@@ -253,7 +273,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[I overcame the challenges by working on the code step by step. When I did not understand something, I read the code again and tried to understand what each part does. I used System.out.println() to check the output and see if my changes worked. I also ran the simulation after adding each feature instead of changing everything at once. When I faced problems in VS Code, I checked the settings and followed the instructions carefully. This helped me finish the assignment and understand the code better.]
 
 ## Question 4: How can you apply multithreading concepts in real-world applications?
 
@@ -261,7 +281,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[I can use multithreading in applications that need to perform different tasks without making the whole program stop. For example, a web browser can load a page while the user continues interacting with it. In a music player, one thread can play music while another handles the buttons. In my assignment, I learned how threads can be started and managed by a scheduler. I also learned that waiting time is important because some tasks may need to wait before running. This knowledge can help me build better applications in the future.]
 
 ### Optional: What would you like to learn more about?
 
@@ -293,7 +313,7 @@
 
 **Your Answer:** *(3-5 sentences)*
 
-[Write your answer here.]
+[A process is a running program with its own memory, while a thread is a smaller part of a process that shares memory with other threads in the same program. Threads are usually easier and faster to create than separate processes. In my assignment, the Process class represents a simulated process, but it runs using a real Java thread. For example, the code creates a thread using new Thread(process) and starts it using currentThread.start(). We used threads because they allow us to simulate multiple processes inside one Java program without creating separate operating system processes.]
 
 ## Question 2: Ready Queue Behavior
 
@@ -305,15 +325,20 @@
 
 **Your Answer:** *(3-5 sentences)*
 
-[Write your answer here.]
+[In my Round-Robin scheduler, each process gets a limited time to run called the time quantum. If a process does not finish during this time, it goes back to the end of the ready queue. For example, in my output, P15 completed its 5000ms quantum but still had 7416ms remaining. This means P15 needs to wait for another turn while other processes get a chance to run. The addProcessToQueue() method is used to add processes to the ready queue.]
 
 Example from my output:
+
+P15 executing quantum [5000ms]
+P15 completed quantum 5000ms
+Remaining time: 7416ms
+P15 yields CPU for context switch
 ```
-[Paste a relevant snippet from your program output here showing a process being re-queued]
+[In this output, P15 runs for 5000ms, which is the time quantum. After that, it still has 7416ms remaining, so the process is not finished yet. P15 gives up the CPU to allow another process to run. Since P15 still has remaining time, it needs to return to the ready queue and wait for its next turn.]
 ```
 
 **Explanation of example:**
-[Explain what is happening in the output snippet you pasted.]
+[In this output, P15 runs for 5000ms but still has 7416ms remaining. This means P15 has not finished its burst time. It gives up the CPU so other processes can run. Since P15 still needs more time, it returns to the ready queue and waits for another turn.]
 
 ## Question 3: Thread Lifecycle
 
@@ -324,14 +349,21 @@ Example from my output:
 **Your Answer:** *(3-5 sentences overall; one short explanation per state)*
 
 1. **New**: [When is P1 in the New state?]
+When the thread for P1 is created using new Thread(process), before calling start().
 
 2. **Runnable**: [When does P1 become Runnable?]
+After calling currentThread.start(), P1 becomes ready for the CPU to execute it.
+
 
 3. **Running**: [When is P1 Running?]
+When P1 is executing its code inside the run() method.
 
 4. **Waiting**: [When and why would a thread be Waiting?]
+When the main thread calls join(), it waits for P1 to finish. P1 can also enter timed waiting when it calls Thread.sleep().
 
 5. **Terminated**: [When is P1 Terminated?]
+When P1 finishes executing its run() method, its thread terminates.
+
 
 ## Question 4: Real-World Applications
 
@@ -341,32 +373,35 @@ Example from my output:
 
 **Your Answer:** *(3-5 sentences per example)*
 
-### Example 1 (operating-system level): [Name of scenario]
+### Example 1 (operating-system level): [CPU Scheduling in an Operating System]
+
 
 **Description**:
-[Describe the real-world scenario.]
+[An operating system needs to run many processes without letting one process use the CPU for too long. Round-Robin scheduling gives each process a limited time quantum, then allows another process to run. This helps different programs get a fair chance to use the CPU. In my simulation, I used a 5000ms time quantum and a ready queue to show how processes take turns running.]
 
 **Why Round-Robin works well here**:
-[Fairness, responsiveness, predictability?]
+[Round-Robin works well because it gives each process a turn and prevents one process from using the CPU for too long. This improves fairness and responsiveness when several programs need CPU time.]
 
-### Example 2: [Name of application/scenario]
+### Example 2: [Music Player Application]
 
 **Description**:
-[Describe the real-world scenario or application.]
+[A music player can do several tasks, like playing music, updating the screen, and responding when the user presses a button. These tasks can use different threads so the application stays responsive. A Round-Robin scheduler can give each runnable thread a turn to use the CPU.]
 
 **Why Round-Robin works well here**:
-[Fairness, responsiveness, predictability?]
+[Round-Robin works well because it allows different tasks to share CPU time fairly. It helps the music player respond to user actions while other tasks are running, instead of letting one task use the CPU for too long.]
 
 ## Summary
 
 **Key concepts I understood through these questions:**
-1.
-2.
-3.
+1.I learned the difference between a process and a thread, and how Java threads can be used to simulate multiple processes.
+
+2.I understood how Round-Robin scheduling works using a ready queue and a time quantum. If a process still has remaining burst time, it needs another turn to finish.
+3.I learned about thread states and how methods like start(), run(), sleep(), and join() are related to thread execution.
+
 
 **Concepts I need to study more:**
-1.
-2.
+1.I want to understand context switching better, especially how the operating system switches between processes.
+2.I need more practice with calculating waiting time and turnaround time, and understanding how they are affected by the scheduling order.
 
 ---
 
@@ -375,25 +410,25 @@ Example from my output:
 > ⚠️ **WARNING:** Go through every line. Late submission costs **-1 mark per day**, and the deadline is **October 10, 2026**.
 
 **Repository**
-- [ ] Repository is **PUBLIC** (Settings → Danger Zone → Visibility)
-- [ ] Repository is renamed to `OS-Assignment1-YourFirstName-YourLastName`
-- [ ] GitHub account uses the university email (`@std.psau.edu.sa`)
+- [x ] Repository is **PUBLIC** (Settings → Danger Zone → Visibility)
+- [ x] Repository is renamed to `OS-Assignment1-YourFirstName-YourLastName`
+- [ x] GitHub account uses the university email (`@std.psau.edu.sa`)
 
 **Code**
-- [ ] Student ID is set in `SchedulerSimulation.java` (line 150)
-- [ ] Code compiles and runs with no errors
-- [ ] Feature 1 (priority), Feature 2 (context switches) and Feature 3 (waiting time table) all work
-- [ ] Each feature has clear comments
+- [ x] Student ID is set in `SchedulerSimulation.java` (line 150)
+- [ x] Code compiles and runs with no errors
+- [x ] Feature 1 (priority), Feature 2 (context switches) and Feature 3 (waiting time table) all work
+- [ x] Each feature has clear comments
 
 **Commits**
-- [ ] **At least 3 meaningful commits, ideally 6 or more**
-- [ ] **One commit per feature**
-- [ ] Commits are spread over **different dates** (not all in the last hour)
-- [ ] Everything is **pushed** to GitHub
+- [x ] **At least 3 meaningful commits, ideally 6 or more**
+- [ x] **One commit per feature**
+- [ x] Commits are spread over **different dates** (not all in the last hour)
+- [ x] Everything is **pushed** to GitHub
 
 **This file (`MY_WORK.md`)**
 - [ ] Full name and student ID filled in at the top
-- [ ] Development log has **5+ entries** on different dates
+- [ x] Development log has **5+ entries** on different dates
 - [ ] Reflection: 4 questions, 5-7 sentences each
 - [ ] Technical answers: 4 questions, 3-5 sentences each, with examples from **your** output
 - [ ] No `[...]` placeholders left
